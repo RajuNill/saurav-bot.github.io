@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Saurav Auto Visitor Bot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f6f6f6;
+      text-align: center;
+      padding: 40px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+    }
+    .log {
+      margin-top: 20px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <h1>CPA Auto Visitor Bot</h1>
+  <p>আপনার CPA লিংক এখানে দিন:</p>
+  <input type="text" id="link" value="https://rity.site/lLnUZ" size="40">
+  <br>
+  <p>ভিজিট সংখ্যা:</p>
+  <input type="number" id="count" value="10" min="1">
+  <br>
+  <button onclick="start()">Start Visits</button>
+  <div class="log" id="log"></div>
+
+  <script>
+    async function start() {
+      const url = document.getElementById("link").value;
+      const count = parseInt(document.getElementById("count").value);
+      const log = document.getElementById("log");
+      log.innerText = "স্টার্ট হচ্ছে...";
+
+      for (let i = 1; i <= count; i++) {
+        window.open(url, '_blank');
+        log.innerText = `${i} বার ভিজিট পাঠানো হয়েছে...`;
+        await new Promise(r => setTimeout(r, 3000));
+      }
+
+      log.innerText = `✅ কাজ শেষ! মোট ${count} বার ভিজিট পাঠানো হয়েছে।`;
+    }
+  </script>
+</body>
+</html>
